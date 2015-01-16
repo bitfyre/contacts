@@ -4,3 +4,7 @@
 *
 *   Define high level typography styling
 *   ========================================================================= */
+
+body {
+  font-family: #{$font-family};
+}

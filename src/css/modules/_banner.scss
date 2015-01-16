@@ -1,10 +1,10 @@
 /*  ============================================================================
 *
-*   Mixins and Functions
+*   Banner
 *
-*   Library of useful mixins and functions for building UI's.
+*   Module for styling app banner.
 *   ========================================================================= */
 
-@import 'mixins/sizing';
-@import 'mixins/typography';
-@import 'mixins/layout';
+.Banner {
+  @include clearfix();
+}
