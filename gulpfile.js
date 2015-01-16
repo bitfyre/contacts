@@ -25,7 +25,7 @@ gulp.task('html', function(){
 });
 
 gulp.task('css', function() {
-  gulp.src(path.join(__dirname, 'src/css/**/*.scss'))
+  gulp.src(path.join(__dirname, 'src/css/**/*.css.scss'))
     .pipe(sass({
       style: 'expanded',
       //sourceComments: 'map',
