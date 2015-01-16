@@ -1,0 +1,11 @@
+//  ============================================================================
+//
+//  Typography
+//
+//  Mixins and Functions to assist in styling type.
+//  ============================================================================
+
+// Mixin to caculate unitless line-heights
+@mixin line-height($line-height, $font-size) {
+  line-height: ($line-height / $font-size);
+}
