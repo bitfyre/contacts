@@ -4,6 +4,7 @@ var jade = require('gulp-jade');
 var notify = require('gulp-notify');
 var path = require('path');
 var rename = require('gulp-rename');
+var sass = require('gulp-sass');
 
 gulp.task('html', function(){
   gulp.src(path.join(__dirname, 'src/**/*.html.jade'))
@@ -17,6 +18,29 @@ gulp.task('html', function(){
     .pipe(gulp.dest(path.join(__dirname, 'build')))
     .pipe(notify({
       message: 'HTML built'
+    }))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
+gulp.task('css', function() {
+  gulp.src(path.join(__dirname, 'src/css/**/*.scss'))
+    .pipe(sass({
+      style: 'expanded',
+      //sourceComments: 'map',
+      errLogToConsole: true,
+      onError: function(err) {
+        gutil.log(gutil.colors.red(error.message));
+        this.emit('end');
+      }
+    }))
+    .pipe(rename({
+      extname: ''
+    }))
+    .pipe(gulp.dest(path.join(__dirname, 'build/css')))
+    .pipe(notify({
+      message: 'CSS built'
     }))
     .pipe(browserSync.reload({
       stream: true
@@ -37,8 +61,10 @@ gulp.task('browser-sync', function() {
 gulp.task('watch',
   [
     'html',
+    'css',
     'browser-sync'
   ],
   function() {
     gulp.watch(path.join(__dirname, 'src/**/*.jade'), ['html']);
+    gulp.watch(path.join(__dirname, 'src/css/**/*.scss'), ['css']);
 });
