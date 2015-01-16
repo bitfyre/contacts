@@ -1,0 +1,48 @@
+/*  ============================================================================
+*
+*   List Elements
+*
+*   Normalize list elements.
+*   ========================================================================= */
+
+/**
+ * Address margins set differently in IE 6/7.
+ */
+dl,
+menu,
+ol,
+ul {
+  margin: 1em 0;
+}
+
+dd {
+  margin: 0 0 0 pxs2ems(20);
+  margin: 0 0 0 pxs2rems(20);
+}
+
+/**
+ * Address paddings set differently in IE 6/7.
+ */
+menu,
+ol,
+ul {
+  margin: 0 0 0 pxs2ems(20);
+  margin: 0 0 0 pxs2rems(20);
+}
+
+/**
+ * Correct list images handled incorrectly in IE 7.
+ */
+nav {
+  ul,
+  ol {
+    list-style: none;
+    list-style-image: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 0;
+  }
+}
