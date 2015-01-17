@@ -1,4 +1,5 @@
 var browserSync = require('browser-sync');
+var deploy = require('gulp-gh-pages');
 var gulp = require('gulp');
 var jade = require('gulp-jade');
 var notify = require('gulp-notify');
@@ -67,4 +68,9 @@ gulp.task('watch',
   function() {
     gulp.watch(path.join(__dirname, 'src/**/*.jade'), ['html']);
     gulp.watch(path.join(__dirname, 'src/css/**/*.scss'), ['css']);
+});
+
+gulp.task('deploy', function () {
+  return gulp.src(path.join(__dirname, 'build/**/*'))
+    .pipe(deploy());
 });
