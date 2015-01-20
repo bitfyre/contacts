@@ -6,6 +6,7 @@ var notify = require('gulp-notify');
 var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
+var webpack = require('gulp-webpack');
 
 gulp.task('html', function(){
   gulp.src(path.join(__dirname, 'src/**/*.html.jade'))
@@ -48,6 +49,19 @@ gulp.task('css', function() {
     }));
 });
 
+gulp.task('js', function() {
+  return gulp.src(path.join(__dirname, 'src/js/app.js'))
+    .pipe(webpack({
+      output: {
+        filename: 'app.min.js'
+      }
+    }))
+    .pipe(gulp.dest(path.join(__dirname, 'build/js/')))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
+});
+
 gulp.task('browser-sync', function() {
   browserSync({
     server: {
@@ -63,11 +77,13 @@ gulp.task('watch',
   [
     'html',
     'css',
+    'js',
     'browser-sync'
   ],
   function() {
     gulp.watch(path.join(__dirname, 'src/**/*.jade'), ['html']);
     gulp.watch(path.join(__dirname, 'src/css/**/*.scss'), ['css']);
+    gulp.watch(path.join(__dirname, 'src/js/**/*.js'), ['js']);
 });
 
 gulp.task('deploy', function () {
