@@ -29,5 +29,8 @@
     "gulp-util": "^3.0.2",
     "gulp-webpack": "^1.1.2",
     "webpack": "^1.5.1"
+  },
+  "dependencies": {
+    "jquery": "^2.1.3"
   }
 }
