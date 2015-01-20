@@ -1,0 +1,21 @@
+//  ============================================================================
+//
+//  Typography
+//
+//  Mixins and Functions to assist in styling type.
+//  ============================================================================
+
+//  Mixin to caculate unitless line-heights
+//  @param $line-height pixel equivalent of the line-height
+//  @param $font-size pixel equivalent of the font-size in the current context
+@mixin font-size($font-size, $context: $base-font-size) {
+  font-size: pxs2ems($font-size, $context);
+  font-size: pxs2rems($font-size);
+}
+
+//  Mixin to caculate unitless line-heights
+//  @param $line-height pixel equivalent of the line-height
+//  @param $font-size pixel equivalent of the font-size in the current context
+@mixin line-height($line-height, $font-size) {
+  line-height: ($line-height / $font-size);
+}

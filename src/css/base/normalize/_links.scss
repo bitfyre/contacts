@@ -1,0 +1,40 @@
+/*  ============================================================================
+*
+*   Link or Anchor elements
+*
+*   Normalize link elements.
+*   ========================================================================= */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ * Set default colors for various states, and define a .u-faux-anchor utility
+ */
+a {
+  color: $linky-blue;
+  text-decoration: none;
+  background: transparent;
+
+  /**
+  * address `outline` inconsistency between chrome and other browsers.
+  */
+  &:focus {
+    color: $linky-blue;
+    text-decoration: underline;
+    outline: thin dotted;
+  }
+
+  /**
+  * improve readability when focused and also mouse hovered in all browsers.
+  */
+  &:active,
+  &:hover {
+    color: $linky-blue;
+    text-decoration: underline;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  &:visited {
+    color: $linky-blue;
+  }
+}
