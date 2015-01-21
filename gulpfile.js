@@ -6,7 +6,8 @@ var notify = require('gulp-notify');
 var path = require('path');
 var rename = require('gulp-rename');
 var sass = require('gulp-sass');
-var webpack = require('gulp-webpack');
+var gulpWebpack = require('gulp-webpack');
+var webpack = require('webpack');
 
 gulp.task('html', function(){
   gulp.src(path.join(__dirname, 'src/**/*.html.jade'))
@@ -51,12 +52,8 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
   return gulp.src(path.join(__dirname, 'src/js/app.js'))
-    .pipe(webpack({
-      output: {
-        filename: 'app.min.js'
-      }
-    }))
-    .pipe(gulp.dest(path.join(__dirname, 'build/js/')))
+    .pipe(gulpWebpack(require('./webpack.config.js'), webpack))
+    .pipe(gulp.dest(path.join(__dirname, 'build/js')))
     .pipe(browserSync.reload({
       stream: true
     }));
