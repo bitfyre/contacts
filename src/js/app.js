@@ -1,3 +1,3 @@
 var jQueryVersion = require('./lib.js');
 
-console.log(jQueryVersion);
+console.log(jQueryVersion());
