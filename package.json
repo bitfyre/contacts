@@ -33,8 +33,5 @@
     "mocha": "^2.1.0",
     "mocha-loader": "^0.7.1",
     "webpack": "^1.5.1"
-  },
-  "dependencies": {
-    "jquery": "^2.1.3"
   }
 }
