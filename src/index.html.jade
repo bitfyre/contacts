@@ -4,8 +4,41 @@ html(lang='en-us')
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Contact List Importer/Exporter
     link(rel='stylesheet', href='css/app.css')
     script(src='js/app.min.js', type='text/javascript')
   body
-    h1 Hellow World!
-    p goodbye!
+    h1 Your Contacts
+
+    table
+      tbody#contacts.Conacts.js-contacts
+        tr.Contact
+          td.Contact-givenName
+          td.Contact-familyName
+          td.Contact-tel
+          td.Contact-actions
+            button Export
+            button Remove
+
+
+    form(method='POST', action='#')
+      ol
+        li
+          label(for='given-name') First Name
+          input#given-name(type='text', name='given-name')
+        li
+          label(for='family-name') Last Name
+          input#family-name(type='text', name='family-name')
+        li
+          label(for='tel') Telephone Number
+          input#tel(type='tel', name='tel')
+        li
+          button(type='submit') Add
+
+    form(method='POST', action='#')
+      ol
+        li
+          label(for='given-name') Import JSON
+          textarea#import(name='import')
+        li
+          button(type='submit') Import
