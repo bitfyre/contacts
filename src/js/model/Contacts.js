@@ -7,10 +7,9 @@
  * @arg {string} options.tel -  name of the contact
  */
 var Contact = function(options) {
-  if (typeof options !=== 'object') {
+  if (typeof options !== 'object') {
     throw '`options` is not properly defined';
   }
-  console.log(typeof options);
   this.init(options);
 };
 
@@ -23,7 +22,10 @@ Contact.prototype = {
    * @description Creates a new instance of Contact
    */
   init: function(options) {
-    console.log('Contact.init()');
+    var opts = Object.keys(options);
+    opts.forEach(function(currentValue){
+      this[currentValue] = options[currentValue];
+    }, this);
   }
 };
 
