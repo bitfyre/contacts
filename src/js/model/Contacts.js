@@ -8,7 +8,7 @@
  */
 var Contact = function(options) {
   if (typeof options !== 'object') {
-    throw '`options` is not properly defined';
+    throw console.error('`options` is not properly defined');
   }
   this.init(options);
 };
@@ -26,6 +26,8 @@ Contact.prototype = {
     opts.forEach(function(currentValue){
       this[currentValue] = options[currentValue];
     }, this);
+
+    console.log(this);
   }
 };
 
