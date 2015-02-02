@@ -2,6 +2,7 @@ var AddContactForm = function() {
   this.init();
 };
 
+// @TODO add error handling
 AddContactForm.prototype = {
   el: '.js-addContact',
 
@@ -20,6 +21,7 @@ AddContactForm.prototype = {
       'tel'
     ];
 
+    // @TODO Add simple validation of values
     ids.forEach(function(currentValue) {
       if (document.getElementById(currentValue).value === '') {
         console.error('empty input');
