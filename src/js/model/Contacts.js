@@ -28,6 +28,18 @@ Contact.prototype = {
     }, this);
 
     console.log(this);
+    this.save();
+  },
+
+  save: function() {
+    var key = localStorage.length;
+    var contact = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      tel: this.tel
+    };
+
+    localStorage.setItem(key, JSON.stringify(contact));
   }
 };
 
