@@ -1,5 +1,9 @@
 var ContactView = require('../view/Contact');
 
+/**
+ * Controller Object to dispatch actions to view/Contact and model/Contacts.
+ * @constructor
+ */
 var ContactsController = function() {
   this.init();
 };
@@ -10,6 +14,9 @@ ContactsController.prototype = {
   init: function() {
   },
 
+  /**
+   * @description Fetches all existing contacts from LocalStorage.
+   */
   fetchAll: function() {
     var total = localStorage.length;
 
@@ -24,6 +31,9 @@ ContactsController.prototype = {
     }
   },
 
+  /**
+   * @description Adds all existing contacts to table. Intended for use on startup.
+   */
   renderAll: function() {
     this.fetchAll();
     this.contacts.forEach(function(currentValue) {
