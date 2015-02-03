@@ -43,4 +43,4 @@ Contact.prototype = {
   }
 };
 
-module.exports = Contact
+module.exports = Contact;
