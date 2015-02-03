@@ -13,7 +13,7 @@ ContactView.prototype = {
   idPrefix: 'contact-',
 
   /**
-   * Setup view
+   * @description Setup view
    * @arg {Number} id - integer used as the key when saving to localStorage
    */
   init: function(id, contact) {
@@ -22,11 +22,18 @@ ContactView.prototype = {
     this.paint();
   },
 
+  /**
+   * @description Attaches the view to the DOM
+   */
   paint: function() {
     var $parent = document.querySelector(this.el)
     $parent.appendChild(this.template());
   },
 
+  /**
+   * @description Builds a DOM based object
+   * @returns {DOM} this.$el DOM object ready to attach to the DOM
+   */
   template: function() {
     this.$el = document.createElement(this.tagName);
     this.$el.setAttribute('id', this.id);
