@@ -17,7 +17,7 @@ ContactView.prototype = {
    * @arg {Number} id - integer used as the key when saving to localStorage
    */
   init: function(id, contact) {
-    this.id = this.idPrefix + id.toString();
+    this.id = id;
     this.contact = contact;
     this.paint();
   },
@@ -35,8 +35,9 @@ ContactView.prototype = {
    * @returns {DOM} this.$el DOM object ready to attach to the DOM
    */
   template: function() {
+    var contactView = this;
     this.$el = document.createElement(this.tagName);
-    this.$el.setAttribute('id', this.id);
+    this.$el.setAttribute('id', this.idPrefix + this.id.toString());
     this.$el.classList.add('Contact');
     this.$el.innerHTML = '<td class="Contact-givenName">' +
         this.contact.firstName +
@@ -44,10 +45,17 @@ ContactView.prototype = {
       '<td class="Contact-familyName">' + this.contact.lastName + '</td> \n'+
       '<td class="Contact-tel">' + this.contact.tel + '</td> \n' +
       '<td class="Contact-actions"> \n' +
-        '<button>Export</button> \n' +
-        '<button>Remove</button> \n' +
+        '<button class="js-export">Export</button> \n' +
+        '<button class="js-remove">Remove</button> \n' +
       '</td> \n';
+    this.$el.querySelector('.js-remove').addEventListener('click', function() {
+      contactView.onRemove(contactView.id);
+    }, false);
     return this.$el;
+  },
+
+  onRemove: function(id) {
+    console.log('Remove:', id.toString());
   }
 };
 
