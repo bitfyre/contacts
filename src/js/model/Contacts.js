@@ -46,4 +46,8 @@ Contact.prototype = {
   }
 };
 
+Contact.remove = function(id) {
+  localStorage.removeItem(id);
+};
+
 module.exports = Contact;
