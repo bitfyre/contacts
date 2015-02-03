@@ -5,5 +5,5 @@ var Contact = require('./model/Contacts');
 document.addEventListener("DOMContentLoaded", function(event) {
   var addContact = new AddContactForm();
   var contacts = new Contacts();
-  contacts.fetchAll();
+  contacts.renderAll();
 });

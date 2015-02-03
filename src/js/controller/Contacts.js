@@ -1,3 +1,5 @@
+var ContactView = require('../view/Contact');
+
 var ContactsController = function() {
   this.init();
 };
@@ -6,18 +8,27 @@ ContactsController.prototype = {
   contacts: [],
 
   init: function() {
-    console.log('Contacts Controller');
   },
 
   fetchAll: function() {
     var total = localStorage.length;
+
     for (i = 0; i < total; i++) {
-      if (localStorage.key(i) !== 'debug') {
-        this.contacts.push(JSON.parse(
-          localStorage.getItem((i + 1).toString())));
+      var contact = {};
+      var key = localStorage.key(i);
+      if (key !== 'debug') {
+        contact.key = key;
+        contact.value = JSON.parse(localStorage.getItem((i + 1).toString()));
+        this.contacts.push(contact);
       }
     }
-    console.log(this.contacts);
+  },
+
+  renderAll: function() {
+    this.fetchAll();
+    this.contacts.forEach(function(currentValue) {
+      var contact = new ContactView(currentValue.key, currentValue.value);
+    });
   }
 };
 
