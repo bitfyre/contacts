@@ -35,7 +35,8 @@ ContactsController.prototype = {
   },
 
   /**
-   * @description Adds all existing contacts to table. Intended for use on startup.
+   * @description Adds all existing contacts to table. Intended for use
+   * on startup.
    */
   renderAll: function() {
     var contacts = this.fetchAll();
