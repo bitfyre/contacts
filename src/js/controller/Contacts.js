@@ -1,4 +1,5 @@
 var ContactView = require('../view/Contact');
+var AddContactForm = require('../view/AddContactForm');
 
 /**
  * Controller Object to dispatch actions to view/Contact and model/Contacts.
@@ -12,6 +13,7 @@ ContactsController.prototype = {
   contacts: [],
 
   init: function() {
+    var addContact = new AddContactForm();
   },
 
   /**
