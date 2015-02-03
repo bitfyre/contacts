@@ -1,3 +1,5 @@
+var ContactsController = require('../controller/Contacts');
+
 /**
  * Creates new view of Contact
  * @constructor
@@ -51,12 +53,37 @@ ContactView.prototype = {
     this.$el.querySelector('.js-remove').addEventListener('click', function() {
       contactView.onRemove(contactView.id);
     }, false);
+    this.$el.querySelector('.js-export').addEventListener('click', function() {
+      contactView.onExport(contactView.id);
+    }, false);
     return this.$el;
   },
 
+  /**
+   * @description Method to be used as an event handler on Remove button
+   * @arg {number} id - Key of item to be exported
+   */
+  onExport: function(id) {
+    console.log('Export:', id.toString());
+  },
+
+  /**
+   * @description Method to be used as an event handler on Remove button
+   * @arg {number} id - Key of item to be deleted
+   */
   onRemove: function(id) {
-    console.log('Remove:', id.toString());
+    ContactsController.remove(id);
   }
+};
+
+
+/**
+ * @description Delete element from the DOM.
+ * @arg {number} id - Key of the item to delete that will be converted to a
+ * DOM id.
+ */
+ContactView.remove = function(id) {
+  console.log('Remove: #contact-', id.toString());
 };
 
 module.exports = ContactView;

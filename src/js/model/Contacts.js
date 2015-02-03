@@ -13,6 +13,8 @@ var Contact = function(options) {
     throw console.error('`options` is not properly defined');
   }
   this.init(options);
+
+  ContactView.remove(1);
 };
 
 Contact.prototype = {
@@ -46,8 +48,13 @@ Contact.prototype = {
   }
 };
 
+/**
+ * @description Static method to remove a contact from localStorage.
+ * @arg {number} id - Key of the item to delete.
+ */
 Contact.remove = function(id) {
-  localStorage.removeItem(id);
+  console.log(id.toString(), 'removed from localStorage');
+  //localStorage.removeItem(id);
 };
 
 module.exports = Contact;

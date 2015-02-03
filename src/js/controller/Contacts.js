@@ -1,3 +1,4 @@
+var ContactModel = require('../model/Contacts');
 var ContactView = require('../view/Contact');
 var AddContactForm = require('../view/AddContactForm');
 
@@ -8,9 +9,20 @@ var AddContactForm = require('../view/AddContactForm');
 var ContactsController = function() {
   this.init();
 };
+t
+ContactsController.remove = function(id) {
+  console.log('Controller Remove');
+  //ContactModel.remove(id);
+  //ContactView.remove(id);
+};
+
 
 ContactsController.prototype = {
   init: function() {
+    console.log('new controller');
+  },
+
+  setup: function() {
     var addContact = new AddContactForm();
   },
 
