@@ -1,3 +1,5 @@
+var ContactView = require('../view/Contact');
+
 /**
  * Creates a new Contact
  * @constructor
@@ -40,6 +42,7 @@ Contact.prototype = {
     };
 
     localStorage.setItem(key, JSON.stringify(contact));
+    var contactView = new ContactView(key, contact);
   }
 };
 

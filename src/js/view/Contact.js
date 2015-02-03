@@ -3,8 +3,8 @@
  * @constructor
  * @arg {Number} id - integer used as the key when saving to localStorage
  */
-var ContactView = function(id) {
-  this.init(id);
+var ContactView = function(id, contact) {
+  this.init(id, contact);
 };
 
 ContactView.prototype = {
@@ -16,8 +16,9 @@ ContactView.prototype = {
    * Setup view
    * @arg {Number} id - integer used as the key when saving to localStorage
    */
-  init: function(id) {
+  init: function(id, contact) {
     this.id = this.idPrefix + id.toString();
+    this.contact = contact;
     this.paint();
   },
 
@@ -30,9 +31,11 @@ ContactView.prototype = {
     this.$el = document.createElement(this.tagName);
     this.$el.setAttribute('id', this.id);
     this.$el.classList.add('Contact');
-    this.$el.innerHTML = '<td class="Contact-givenName">Bob</td> \n' +
-      '<td class="Contact-familyName">Jones</td> \n'+
-      '<td class="Contact-tel">(123) 456-7890</td> \n' +
+    this.$el.innerHTML = '<td class="Contact-givenName">' +
+        this.contact.firstName +
+      '</td> \n' +
+      '<td class="Contact-familyName">' + this.contact.lastName + '</td> \n'+
+      '<td class="Contact-tel">' + this.contact.tel + '</td> \n' +
       '<td class="Contact-actions"> \n' +
         '<button>Export</button> \n' +
         '<button>Remove</button> \n' +
