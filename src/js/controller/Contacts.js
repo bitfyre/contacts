@@ -9,7 +9,7 @@ var AddContactForm = require('../view/AddContactForm');
 var ContactsController = function() {
   this.init();
 };
-t
+
 ContactsController.remove = function(id) {
   console.log('Controller Remove');
   //ContactModel.remove(id);
