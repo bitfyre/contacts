@@ -8,9 +8,13 @@
 //  Colors
 //  Light to Dark and ROYGBIV
 //  ============================================================================
+//  Whites
+//  ========================================================
+$cream: #fffcf5;
 
 //  Greys
 //  ========================================================
+$chalkboard: #2e3e3f;
 
 //  Reds
 //  ========================================================
@@ -23,9 +27,11 @@
 
 //  Greens
 //  ========================================================
+$grass: #92af51;
 
 //  Blues
 //  ========================================================
+$sea-foam: #b8d9d9;
 
 //  Indogos
 //  ========================================================
@@ -40,8 +46,8 @@ $base-font-size:  14;
 $serif-stack:  georgia, times, serif;
 $sans-serif-stack:  verdana, arial, sans-serif;
 
-$fancy-serif-stack: #{$serif-stack};
-$fancy-sans-serif-stack: #{$sans-serif-stack};
+$fancy-serif-stack: "bree-serif-1","bree-serif-2", #{$serif-stack};
+$fancy-sans-serif-stack: "soleil-1","soleil-2", #{$sans-serif-stack};
 
 //  Media Queries
 //  ============================================================================
@@ -56,6 +62,7 @@ $large-screen: "only screen and (min-width: #{$large-breakpoint})";
 
 //  Project Specifics
 //  ============================================================================
+$background-color: #{$cream};
 
 //  Anchor Defaults
 //  ========================================================
@@ -65,3 +72,4 @@ $linky-blue: blue;
 //  ========================================================
 $font-family: #{$fancy-sans-serif-stack};
 $heading-family: #{$fancy-serif-stack};
+$font-color: #{$chalkboard};
