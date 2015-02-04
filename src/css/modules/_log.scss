@@ -1,0 +1,25 @@
+/*  ============================================================================
+*
+*   Log
+*
+*   Styling log items
+*   ========================================================================= */
+
+.Log {
+  list-style: none;
+  padding: 0;
+
+  .Log-item {
+    padding: pxs2ems(12);
+    padding: pxs2rems(12);
+    margin-bottom: pxs2ems(12);
+    margin-bottom: pxs2rems(12);
+  }
+
+  &_info {
+    &-item {
+      background-color: $cream;
+    }
+  }
+}
+
