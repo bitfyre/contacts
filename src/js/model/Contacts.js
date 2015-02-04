@@ -35,7 +35,7 @@ Contact.prototype = {
 
   /**
    * @description Saves new contact to localStorage, and calls
-   * ContactController.render() to dispatch view rendering.
+   * ContactController.renderContact() to dispatch view rendering.
    */
   save: function() {
     var key = localStorage.length;
@@ -47,7 +47,7 @@ Contact.prototype = {
 
     localStorage.setItem(key, JSON.stringify(contact));
 
-    var contactView = ContactsController.render(key, contact)
+    var contactView = ContactsController.renderContact(key, contact);
   }
 };
 

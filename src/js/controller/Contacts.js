@@ -70,7 +70,7 @@ ContactsController.renderContact = function(id, contact) {
  * @arg {number} id - Key used to select contact from the localStorage.
  */
 ContactsController.toJSON = function(id) {
-  console.log(ContactModel.fetch(id));
+  var $fieldExport = new ContactExport(ContactModel.fetch(id));
 };
 
 module.exports = ContactsController;
@@ -79,3 +79,4 @@ module.exports = ContactsController;
 var ContactModel = require('../model/Contacts');
 var ContactView = require('../view/Contact');
 var AddContactForm = require('../view/AddContactForm');
+var ContactExport = require('../view/ContactExport');
