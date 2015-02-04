@@ -1,0 +1,19 @@
+/*  ============================================================================
+*
+*   Contact
+*
+*   Module for styling standard Contact table
+*   ========================================================================= */
+
+.Contact {
+  &:nth-of-type(odd) {
+    td {
+      background-color: $peach;
+    }
+  }
+
+  td {
+    padding: pxs2ems(8);
+    padding: pxs2rems(8);
+  }
+}
