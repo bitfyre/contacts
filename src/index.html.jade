@@ -63,10 +63,19 @@ html(lang='en-us')
         li
           button(type='submit') Add
 
-    form(method='POST', action='#')
+    form.js-export(method='POST', action='#')
       ol
         li
-          label(for='given-name') Import JSON
-          textarea#import(name='import')
+          label(for='given-name') JSON Export
+          textarea.js-exportField#export(name='export')
+
+    form.js-import(method='POST', action='#')
+      ol
+        li
+          label(for='import') Import JSON
+          textarea.js-importField#import(name='import')
         li
           button(type='submit') Import
+
+    ol.Log
+      li.Log-entry
