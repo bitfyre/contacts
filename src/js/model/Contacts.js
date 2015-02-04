@@ -5,7 +5,7 @@ var ContactsController = require('../controller/Contacts');
  * @constructor
  * @arg {Object} options - Object hash used to populate instance.
  * @arg {string} options.firstName - First name of the contact.
- * @arg {string} options.firstName - Last name of the contact.
+ * @arg {string} options.lastName - Last name of the contact.
  * @arg {string} options.tel - Telephone number of the contact.
  */
 var Contact = function(options) {

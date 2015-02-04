@@ -72,6 +72,14 @@ html(lang='en-us')
     form.js-import(method='POST', action='#')
       ol
         li
+          Data must be imported as an array of objects. The object should have the following structure.
+          pre
+            | {
+            |   "firstName": "String",
+            |   "lastName": "String",
+            |   "tel": "String"
+            | }
+        li
           label(for='import') Import JSON
           textarea.js-importField#import(name='import')
         li

@@ -8,6 +8,7 @@ var ContactsController = function() {
 ContactsController.prototype = {
   setup: function() {
     var addContact = new AddContactForm();
+    this.jsonImport();
   },
 
   /**
@@ -39,6 +40,10 @@ ContactsController.prototype = {
     contacts.forEach(function(currentValue) {
       var contact = new ContactView(currentValue.key, currentValue.value);
     });
+  },
+
+  jsonImport: function() {
+    var $importForm = new ContactImport();
   }
 };
 
@@ -57,7 +62,7 @@ ContactsController.remove = function(id) {
  * @arg {number} id - Key of the contact being rendered.
  * @arg {Object} contact - Object hash used to populate instance.
  * @arg {string} contact.firstName - First name of the contact.
- * @arg {string} contact.firstName - Last name of the contact.
+ * @arg {string} contact.lastName - Last name of the contact.
  * @arg {string} contact.tel - Telephone number of the contact.
  */
 ContactsController.renderContact = function(id, contact) {
@@ -73,6 +78,19 @@ ContactsController.toJSON = function(id) {
   var $fieldExport = new ContactExport(ContactModel.fetch(id));
 };
 
+/**
+ * @description Method to fetch item from localStorage and then render
+ * to the DOM.
+ * @arg {number} json - json blob to be imported
+ */
+ContactsController.fromJSON = function(json) {
+  console.log(typeof json);
+  console.log(json);
+  json.forEach(function(currentValue) {
+    var contactModel = new ContactModel(currentValue);
+  });
+};
+
 module.exports = ContactsController;
 
 // Keep requires after the exports to prevent cirular dependency issues
@@ -80,3 +98,4 @@ var ContactModel = require('../model/Contacts');
 var ContactView = require('../view/Contact');
 var AddContactForm = require('../view/AddContactForm');
 var ContactExport = require('../view/ContactExport');
+var ContactImport = require('../view/ContactImport');
