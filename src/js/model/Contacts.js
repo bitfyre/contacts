@@ -33,6 +33,10 @@ Contact.prototype = {
     this.save();
   },
 
+  /**
+   * @description Saves new contact to localStorage, and calls
+   * ContactController.render() to dispatch view rendering.
+   */
   save: function() {
     var key = localStorage.length;
     var contact = {

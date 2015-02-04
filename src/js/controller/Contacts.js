@@ -42,11 +42,24 @@ ContactsController.prototype = {
   }
 };
 
+/**
+ * @description Disptaches static remove methods on model and view
+ * @arg {number} id - Key used to select contact from DOM and
+ * localStorage.
+ */
 ContactsController.remove = function(id) {
   ContactModel.remove(id);
   ContactView.remove(id);
 };
 
+/**
+ * @description Creates a new ContactView and attaches it to the DOM.
+ * @arg {number} id - Key of the contact being rendered.
+ * @arg {Object} contact - Object hash used to populate instance.
+ * @arg {string} contact.firstName - First name of the contact.
+ * @arg {string} contact.firstName - Last name of the contact.
+ * @arg {string} contact.tel - Telephone number of the contact.
+ */
 ContactsController.render = function(id, contact) {
   var contactView = new ContactView(id, contact);
 };
