@@ -52,7 +52,9 @@ Contact.prototype = {
   },
 
   /**
-   * @description Set a UUID like property to use as the key.
+   * @description Set a UUID like property to use as the key. Blatanty
+   * used {@link http://jsfiddle.net/briguy37/2MVFd/ | this jsFiddle}
+   * as my reference.
    */
   setUUID: function() {
     var date = new Date().getTime();
