@@ -22,7 +22,7 @@ ContactsController.prototype = {
       var key = localStorage.key(i);
       if (key !== 'debug') {
         contact.key = key;
-        contact.value = JSON.parse(localStorage.getItem((i + 1).toString()));
+        contact.value = JSON.parse(localStorage.getItem(key));
         contacts.push(contact);
       }
     }
