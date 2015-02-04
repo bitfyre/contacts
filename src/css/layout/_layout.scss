@@ -5,11 +5,6 @@
 *   Layout related css
 *   ========================================================================= */
 
-body {
-  padding-bottom: pxs2ems(86);
-  padding-bottom: pxs2rems(86);
-}
-
 .l {
   &-fullBleed {
     width: 100%;
@@ -22,8 +17,10 @@ body {
     padding: pxs2ems(36) pxs2ems(12);
     padding: pxs2rems(36) pxs2rems(12);
     margin: 0 auto;
+    @include clearfix();
 
     @include mq($large-screen) {
+      max-width: pxs2ems(680);
       max-width: pxs2rems(680);
       padding: pxs2ems(72) pxs2ems(24);
       padding: pxs2rems(72) pxs2rems(24);

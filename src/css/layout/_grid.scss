@@ -1,0 +1,30 @@
+/*  ============================================================================
+*
+*   Grid
+*
+*   Grid specific layout related css
+*   ========================================================================= */
+
+.g {
+  &-narrow {
+    text-align: center;
+
+    &-inner {
+      text-align: left;
+      max-width: pxs2ems(480);
+      max-width: pxs2rems(480);
+      margin: 0 auto;
+    }
+  }
+
+  @include mq($large-screen) {
+    &-split {
+      width: 46%;
+      float: left;
+
+      & + & {
+        float: right;
+      }
+    }
+  }
+}
