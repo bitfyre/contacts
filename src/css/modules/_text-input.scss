@@ -18,12 +18,13 @@
   }
 
   &-field {
-    //border: 1px solid $aluminium;
+    box-sizing: border-box;
     width: 100%;
     max-width: pxs2rems(360);
     max-width: pxs2rems(360);
     padding: pxs2ems(4);
     padding: pxs2rems(4);
+    border: 3px solid $slate;
     border-radius: 3px;
   }
 
