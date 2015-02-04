@@ -5,5 +5,5 @@ document.addEventListener("DOMContentLoaded", function(event) {
   contacts.renderAll();
   contacts.setup();
 
-  ContactsController.log();
+  ContactsController.log('warn', 'Blah', 'object');
 });

@@ -89,8 +89,15 @@ ContactsController.fromJSON = function(json) {
   });
 };
 
-ContactsController.log = function() {
-  var log = new LogController();
+/**
+ * @description Logging Method.
+ * @arg {string} type - Type of log entry. Valid options are:
+ * ['debug', 'info', 'warning', 'error', 'critical'].
+ * @arg {string} msg - Message relating to entry.
+ * @arg {string} data - Generated data related to the log entry.
+ */
+ContactsController.log = function(type, msg, data) {
+  var log = new LogController(type, msg, data);
 };
 
 
