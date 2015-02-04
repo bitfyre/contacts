@@ -70,7 +70,7 @@ ContactView.prototype = {
    * @arg {number} id - Key of item to be exported
    */
   onExport: function(id) {
-    console.log('Export:', id.toString());
+    ContactsController.toJSON(id);
   },
 
   /**

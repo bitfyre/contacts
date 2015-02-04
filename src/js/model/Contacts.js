@@ -56,7 +56,15 @@ Contact.prototype = {
  * @arg {number} id - Key of the item to delete.
  */
 Contact.remove = function(id) {
-  localStorage.removeItem(id);
+  localStorage.removeItem(id.toString());
+};
+
+/**
+ * @description Static method to remove a contact from localStorage.
+ * @arg {number} id - Key of the item to delete.
+ */
+Contact.fetch = function(id) {
+  return localStorage.getItem(id.toString());
 };
 
 module.exports = Contact;

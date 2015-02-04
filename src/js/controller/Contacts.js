@@ -64,6 +64,15 @@ ContactsController.render = function(id, contact) {
   var contactView = new ContactView(id, contact);
 };
 
+/**
+ * @description Method to fetch item from localStorage and then render
+ * to the DOM.
+ * @arg {number} id - Key used to select contact from the localStorage.
+ */
+ContactsController.toJSON = function(id) {
+  console.log(ContactModel.fetch(id));
+};
+
 module.exports = ContactsController;
 
 // Keep requires after the exports to prevent cirular dependency issues
