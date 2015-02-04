@@ -10,8 +10,10 @@
   padding: 0;
 
   .Log-item {
+    word-wrap: break-word;
     padding: pxs2ems(12);
     padding: pxs2rems(12);
+    border-radius: 3px;
     margin-bottom: pxs2ems(12);
     margin-bottom: pxs2rems(12);
   }
