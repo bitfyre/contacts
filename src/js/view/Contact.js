@@ -53,8 +53,8 @@ ContactView.prototype = {
       '<td class="Contact-familyName">' + this.contact.lastName + '</td> \n'+
       '<td class="Contact-tel">' + this.contact.tel + '</td> \n' +
       '<td class="Contact-actions"> \n' +
-        '<button class="js-export">Export</button> \n' +
-        '<button class="js-remove">Remove</button> \n' +
+        '<button class="js-export Btn Btn_medium">Export</button> \n' +
+        '<button class="js-remove Btn Btn_medium">Remove</button> \n' +
       '</td> \n';
     this.$el.querySelector('.js-remove').addEventListener('click', function() {
       contactView.onRemove(contactView.id);

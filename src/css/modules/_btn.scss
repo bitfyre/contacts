@@ -6,16 +6,24 @@
 *   ========================================================================= */
 
 .Btn {
-  //color: $stainless-steel;
   font-weight: 300;
-  //background-color: $aqua;
+  background-color: $sea-foam;
   width: 100%;
   border: none;
   border-radius: 2px;
+  transition: {
+    duration: 300ms;
+    property: background-color;
+  }
+
+
+  @include mq($large-screen) {
+    width: auto;
+  }
 
   &:hover,
   &:focus {
-    //background-color: darken($aqua, 10%);
+    background-color: darken($sea-foam, 10%);
   }
 
   &_medium {
@@ -23,6 +31,17 @@
     @include line-height(18, 12);
     padding: pxs2ems(7, 12) pxs2ems(12, 12);
     padding: pxs2rems(7) pxs2rems(12);
+
+    & + & {
+      margin-top: pxs2ems(8, 12);
+      margin-top: pxs2ems(8);
+
+      @include mq($large-screen) {
+        margin-top: 0;
+        margin-left: pxs2ems(8, 12);
+        margin-left: pxs2ems(8);
+      }
+    }
   }
 
   &_large {
