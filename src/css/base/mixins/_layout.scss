@@ -16,3 +16,11 @@
     clear: both;
   }
 }
+
+// Simiple media query mixin
+// @param $breakpoint the media to be used
+@mixin mq($breakpoint) {
+  @media #{$breakpoint} {
+    @content;
+  }
+}

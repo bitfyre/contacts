@@ -1,0 +1,34 @@
+/*  ============================================================================
+*
+*   Btn
+*
+*   Basic button module
+*   ========================================================================= */
+
+.Btn {
+  //color: $stainless-steel;
+  font-weight: 300;
+  //background-color: $aqua;
+  width: 100%;
+  border: none;
+  border-radius: 2px;
+
+  &:hover,
+  &:focus {
+    //background-color: darken($aqua, 10%);
+  }
+
+  &_medium {
+    @include font-size(12);
+    @include line-height(18, 12);
+    padding: pxs2ems(7, 12) pxs2ems(12, 12);
+    padding: pxs2rems(7) pxs2rems(12);
+  }
+
+  &_large {
+    @include font-size(14);
+    @include line-height(18, 14);
+    padding: pxs2ems(15, 14) pxs2ems(24, 14);
+    padding: pxs2rems(15) pxs2rems(24);
+  }
+}

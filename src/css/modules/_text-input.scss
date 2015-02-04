@@ -1,0 +1,33 @@
+/*  ============================================================================
+*
+*   TextInput
+*
+*   Module for styling standard Text Inputs.
+*   ========================================================================= */
+
+.TextInput {
+  text-align: center;
+  box-sizing: border-box;
+  padding: pxs2ems(8) pxs2ems(8) pxs2ems(24) pxs2ems(8);
+  padding: pxs2rems(8) pxs2rems(8) pxs2rems(24) pxs2rems(8);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  //background-color: $compressed-charcoal;
+
+  &-label {
+    //color: $aluminium;
+    @include font-size(12);
+    text-align: left;
+    display: block;
+  }
+
+  &-field {
+    //border: 1px solid $aluminium;
+    border-radius: 3px;
+  }
+
+  &-input {
+    display: inline-block;
+  }
+}

@@ -2,7 +2,7 @@
 *
 *   App Manifest
 *
-*   Primary Manifest of css styles for @bitfyre's sudoku solution
+*   Primary Manifest of css styles for @bitfyre's sudoku solution.
 *   ========================================================================= */
 
 /*  Base
@@ -15,3 +15,13 @@
 /*  Modules
 *   ========================================================================= */
 @import 'modules/banner';
+@import 'modules/btn';
+@import 'modules/text-input';
+
+/*  Layout
+*   ========================================================================= */
+@import 'layout/layout';
+
+/*  Utilities
+*   ========================================================================= */
+@import 'utilities/display';

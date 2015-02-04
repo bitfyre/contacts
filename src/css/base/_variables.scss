@@ -45,6 +45,8 @@ $fancy-sans-serif-stack: #{$sans-serif-stack};
 
 //  Media Queries
 //  ============================================================================
+$large-breakpoint: (760 / $base-font-size) * 1em;
+$large-screen: "only screen and (min-width: #{$large-breakpoint})";
 
 //  Layout
 //  ============================================================================
