@@ -52,8 +52,7 @@ Contact.prototype = {
  * @arg {number} id - Key of the item to delete.
  */
 Contact.remove = function(id) {
-  console.log(id.toString(), 'removed from localStorage');
-  //localStorage.removeItem(id);
+  localStorage.removeItem(id);
 };
 
 module.exports = Contact;

@@ -9,10 +9,16 @@ var ContactView = function(id, contact) {
   this.init(id, contact);
 };
 
+var CONST = {
+  EL: '.js-contacts',
+  ID_PREFIX: 'contact-'
+};
+
+
 ContactView.prototype = {
   tagName: 'tr',
-  el: '.js-contacts',
-  idPrefix: 'contact-',
+  el: CONST.EL,
+  idPrefix: CONST.ID_PREFIX,
 
   /**
    * @description Setup view
@@ -83,7 +89,11 @@ ContactView.prototype = {
  * DOM id.
  */
 ContactView.remove = function(id) {
-  console.log('Remove: #contact-', id.toString());
+  var $parent = document.querySelector(CONST.EL);
+  var $contact = document.getElementById(CONST.ID_PREFIX
+    + id.toString());
+
+  $parent.removeChild($contact);
 };
 
 module.exports = ContactView;
