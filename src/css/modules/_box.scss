@@ -13,6 +13,7 @@
     font-family: $fancy-serif-stack;
     @include font-size(24);
     font-weight: 300;
+    text-align: center;
   }
 
   &_midTone {
@@ -20,10 +21,10 @@
   }
 
   &_light {
-    background-color: $chalkboard;
+    background-color: $peach;
 
     &-title {
-      color: $sea-foam;
+      color: $font-color;
     }
   }
 }
