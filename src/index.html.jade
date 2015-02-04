@@ -8,81 +8,90 @@ html(lang='en-us')
     link(rel='stylesheet', href='css/app.css')
     script(src='js/app.min.js', type='text/javascript')
   body
-    h1 Your Contacts
+    header.Banner.l-fullBleed(role='banner')
+      h1 Your Contacts
 
-    table
-      tbody#contacts.Conacts.js-contacts
-        //
-          tr.Contact
-            td.Contact-givenName Bob
-            td.Contact-familyName Jones
-            td.Contact-tel (123) 456-7890
-            td.Contact-actions
-              button Export
-              button Remove
-          tr.Contact
-            td.Contact-givenName Viktoriya
-            td.Contact-familyName Lobanov-Rostovskii
-            td.Contact-tel 123-456-7890
-            td.Contact-actions
-              button Export
-              button Remove
-          tr.Contact
-            td.Contact-givenName Patriciana
-            td.Contact-familyName Richardson
-            td.Contact-tel 1-123-456-7890
-            td.Contact-actions
-              button Export
-              button Remove
-          tr.Contact
-            td.Contact-givenName Bob
-            td.Contact-familyName Jones
-            td.Contact-tel 1 (123) 456-7890
-            td.Contact-actions
-              button Export
-              button Remove
-          tr.Contact
-            td.Contact-givenName Bob
-            td.Contact-familyName Jones
-            td.Contact-tel (123) 456-7890
-            td.Contact-actions
-              button Export
-              button Remove
+    main.l-fullBleed(role='main')
+      section.l-fullBleed
+        .l-wrapper
+          table
+            tbody#contacts.Conacts.js-contacts(aria-live='polite', aria-relevant='additions removals')
+              //
+                tr.Contact
+                  td.Contact-givenName Bob
+                  td.Contact-familyName Jones
+                  td.Contact-tel (123) 456-7890
+                  td.Contact-actions
+                    button Export
+                    button Remove
+                tr.Contact
+                  td.Contact-givenName Viktoriya
+                  td.Contact-familyName Lobanov-Rostovskii
+                  td.Contact-tel 123-456-7890
+                  td.Contact-actions
+                    button Export
+                    button Remove
+                tr.Contact
+                  td.Contact-givenName Patriciana
+                  td.Contact-familyName Richardson
+                  td.Contact-tel 1-123-456-7890
+                  td.Contact-actions
+                    button Export
+                    button Remove
+                tr.Contact
+                  td.Contact-givenName Bob
+                  td.Contact-familyName Jones
+                  td.Contact-tel 1 (123) 456-7890
+                  td.Contact-actions
+                    button Export
+                    button Remove
+                tr.Contact
+                  td.Contact-givenName Bob
+                  td.Contact-familyName Jones
+                  td.Contact-tel (123) 456-7890
+                  td.Contact-actions
+                    button Export
+                    button Remove
 
-    form.js-addContact(method='POST', action='#')
-      ol
-        li
-          label(for='given-name') First Name
-          input#given-name(type='text', name='given-name')
-        li
-          label(for='family-name') Last Name
-          input#family-name(type='text', name='family-name')
-        li
-          label(for='tel') Telephone Number
-          input#tel(type='tel', name='tel')
-        li
-          button(type='submit') Add
+      section.l-fullBleed
+        .l-wrapper
+          form.js-addContact(method='POST', action='#')
+            ol
+              li
+                label(for='given-name') First Name
+                input#given-name(type='text', name='given-name')
+              li
+                label(for='family-name') Last Name
+                input#family-name(type='text', name='family-name')
+              li
+                label(for='tel') Telephone Number
+                input#tel(type='tel', name='tel')
+              li
+                button(type='submit') Add
 
-    form.js-export(method='POST', action='#')
-      ol
-        li
-          label(for='given-name') JSON Export
-          textarea.js-exportField#export(name='export')
+      section.l-fullBleed
+        .l-wrapper
+        form.js-export(method='POST', action='#')
+          ol
+            li
+              label(for='given-name') JSON Export
+              textarea.js-exportField#export(name='export')
 
-    form.js-import(method='POST', action='#')
-      ol
-        li
-          Data must be imported as an array of objects. The object should have the following structure.
-          pre
-            | {
-            |   "firstName": "String",
-            |   "lastName": "String",
-            |   "tel": "String"
-            | }
-        li
-          label(for='import') Import JSON
-          textarea.js-importField#import(name='import')
-        li
-          button(type='submit') Import
+        form.js-import(method='POST', action='#')
+          ol
+            li#import-desc
+              Data must be imported as an array of objects. The object should have the following structure.
+              pre
+                | {
+                |   "firstName": "String",
+                |   "lastName": "String",
+                |   "tel": "String"
+                | }
+            li
+              label(for='import') Import JSON
+              textarea.js-importField#import(name='import', aria-describedby='import-desc')
+            li
+              button(type='submit') Import
 
-    ol.Log.js-logs
+      section.l-fullBleed
+        ol.Log.js-logs(aria-live='polite', aria-relevant='additions')
