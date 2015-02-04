@@ -1,7 +1,3 @@
-var ContactModel = require('../model/Contacts');
-var ContactView = require('../view/Contact');
-var AddContactForm = require('../view/AddContactForm');
-
 /**
  * Controller Object to dispatch actions to view/Contact and model/Contacts.
  * @constructor
@@ -10,9 +6,8 @@ var ContactsController = function() {
 };
 
 ContactsController.remove = function(id) {
-  console.log('Controller Remove');
-  //ContactModel.remove(id);
-  //ContactView.remove(id);
+  ContactModel.remove(id);
+  ContactView.remove(id);
 };
 
 ContactsController.render = function(id, contact) {
@@ -57,3 +52,8 @@ ContactsController.prototype = {
 };
 
 module.exports = ContactsController;
+
+// Keep requires after the exports to prevent cirular dependency issues
+var ContactModel = require('../model/Contacts');
+var ContactView = require('../view/Contact');
+var AddContactForm = require('../view/AddContactForm');
