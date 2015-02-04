@@ -23,7 +23,7 @@ ContactImport.prototype = {
   events: function() {
     var contactImport = this;
     var $form = document.querySelector(this.el);
-    $form.addEventListener('submit', function() {
+    $form.addEventListener('submit', function(event) {
       var value = this.querySelector(contactImport.elField).value;
       var json;
       event.preventDefault();

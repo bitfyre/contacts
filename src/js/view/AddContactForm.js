@@ -17,8 +17,8 @@ AddContactForm.prototype = {
   init: function() {
     var addContact = this;
     var $form = document.querySelector(this.el);
-    $form.addEventListener('submit', function() {
-      addContact.onSubmit();
+    $form.addEventListener('submit', function(event) {
+      addContact.onSubmit(event);
     }, false);
   },
 
@@ -49,7 +49,7 @@ AddContactForm.prototype = {
     return inputs;
   },
 
-  onSubmit: function() {
+  onSubmit: function(event) {
     event.preventDefault();
     var values = this.getInputValues();
     var contact = new Contact(values);
