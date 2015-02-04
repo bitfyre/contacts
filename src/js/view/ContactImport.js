@@ -31,7 +31,8 @@ ContactImport.prototype = {
         json = JSON.parse(value);
       }
       catch (e) {
-        console.log('Invalid Json', e);
+        return ContactsController.log('error', 'Invalid JSON',
+          JSON.stringify(e.message));
       }
       ContactsController.fromJSON(json);
     }, false);

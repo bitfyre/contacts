@@ -28,6 +28,8 @@ ContactsController.prototype = {
       }
     }
 
+    ContactsController.log('info', 'All Contacts Fetched', JSON.stringify(contacts));
+
     return contacts;
   },
 
@@ -40,6 +42,9 @@ ContactsController.prototype = {
     contacts.forEach(function(currentValue) {
       var contact = new ContactView(currentValue.key, currentValue.value);
     });
+
+    ContactsController.log('info', 'All Contacts Rendered',
+      contacts.length.toString() + ' Contacts Rendered');
   },
 
   jsonImport: function() {
@@ -86,6 +91,8 @@ ContactsController.toJSON = function(id) {
 ContactsController.fromJSON = function(json) {
   json.forEach(function(currentValue) {
     var contactModel = new ContactModel(currentValue);
+    ContactsController.log('info', 'Contact Imported from JSON',
+      JSON.stringify(currentValue));
   });
 };
 

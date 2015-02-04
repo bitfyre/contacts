@@ -10,7 +10,9 @@ var ContactsController = require('../controller/Contacts');
  */
 var Contact = function(options) {
   if (typeof options !== 'object') {
-    throw console.error('`options` is not properly defined');
+    ContactsController.log('critical', '`options` is not properly defined',
+      JSON.stringify(options));
+    throw '`options` is not properly defined';
   }
   this.init(options);
 };
@@ -29,7 +31,9 @@ Contact.prototype = {
       this[currentValue] = options[currentValue];
     }, this);
 
-    console.log(this);
+
+    ContactsController.log('debug', '`this` in `ContactsModel.init()`',
+      JSON.stringify(this));
     this.setUUID();
     this.save();
   },
@@ -49,6 +53,16 @@ Contact.prototype = {
     localStorage.setItem(key, JSON.stringify(contact));
 
     var contactView = ContactsController.renderContact(key, contact);
+
+    var obj = {
+      "key": key,
+      "contact": contact
+    };
+
+    ContactsController.log('info', 'Contact Saved', JSON.stringify({
+      "key": key,
+      "contact": contact
+    }));
   },
 
   /**
@@ -76,6 +90,8 @@ Contact.prototype = {
  */
 Contact.remove = function(id) {
   localStorage.removeItem(id.toString());
+
+  ContactsController.log('info', 'Contact Deleted', id.toString());
 };
 
 /**

@@ -1,4 +1,5 @@
 var Contact = require('../model/Contacts');
+var ContactsController = require('../controller/Contacts');
 
 var AddContactForm = function() {
   this.init();
@@ -38,7 +39,9 @@ AddContactForm.prototype = {
     ids.forEach(function(currentValue) {
       var value = document.getElementById(currentValue[0]).value;
       if (value === '') {
-        throw console.error('empty input');
+        ContactsController.log('error', 'empty inputs',
+          'Add Contact Form submission attempted with out filling out');
+        throw 'empty input';
       }
       inputs[currentValue[1]] = value;
     });
@@ -48,7 +51,11 @@ AddContactForm.prototype = {
 
   onSubmit: function() {
     event.preventDefault();
-    var contact = new Contact(this.getInputValues());
+    var values = this.getInputValues();
+    var contact = new Contact(values);
+
+    ContactsController.log('info', 'Add Contact Form Submited',
+      JSON.stringify(values));
   }
 }
 
