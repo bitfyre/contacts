@@ -1,4 +1,4 @@
-var ContactView = require('../view/Contact');
+var ContactsController = require('../controller/Contacts');
 
 /**
  * Creates a new Contact.
@@ -13,8 +13,6 @@ var Contact = function(options) {
     throw console.error('`options` is not properly defined');
   }
   this.init(options);
-
-  ContactView.remove(1);
 };
 
 Contact.prototype = {
@@ -44,7 +42,8 @@ Contact.prototype = {
     };
 
     localStorage.setItem(key, JSON.stringify(contact));
-    var contactView = new ContactView(key, contact);
+
+    var contactView = ContactsController.render(key, contact)
   }
 };
 
