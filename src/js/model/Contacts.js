@@ -30,6 +30,7 @@ Contact.prototype = {
     }, this);
 
     console.log(this);
+    this.setUUID();
     this.save();
   },
 
@@ -38,7 +39,7 @@ Contact.prototype = {
    * ContactController.renderContact() to dispatch view rendering.
    */
   save: function() {
-    var key = localStorage.length;
+    var key = this.uuid;
     var contact = {
       firstName: this.firstName,
       lastName: this.lastName,
@@ -48,6 +49,22 @@ Contact.prototype = {
     localStorage.setItem(key, JSON.stringify(contact));
 
     var contactView = ContactsController.renderContact(key, contact);
+  },
+
+  /**
+   * @description Set a UUID like property to use as the key.
+   */
+  setUUID: function() {
+    var date = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+    uuid = uuid.replace(/[xy]/g, function(current) {
+      var num = (date + Math.random()*16)%16 | 0;
+      date = Math.floor(date/16);
+      return (current == 'x' ? num : (num&0x3|0x8))
+        .toString(16);
+    });
+
+    this.uuid = uuid;
   }
 };
 
