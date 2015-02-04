@@ -12,6 +12,7 @@
   width: 100%;
 
   &-label {
+    color: $sea-foam;
     @include font-size(16);
     text-align: left;
     display: block;
@@ -27,13 +28,12 @@
     border-radius: 3px;
   }
 
-  &-input {
-    display: inline-block;
+  &-textarea {
+    height: pxs2ems(120);
+    height: pxs2rems(120);
   }
 
-  &_dark {
-    &-label {
-      color: $sea-foam;
-    }
+  &-desc {
+    color: $sea-foam;
   }
 }

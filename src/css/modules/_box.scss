@@ -14,4 +14,16 @@
     @include font-size(24);
     font-weight: 300;
   }
+
+  &_midTone {
+    background-color: $slate;
+  }
+
+  &_light {
+    background-color: $chalkboard;
+
+    &-title {
+      color: $sea-foam;
+    }
+  }
 }

@@ -56,48 +56,52 @@ html(lang='en-us')
                     button Remove
 
       section.l-fullBleed.Box
+        .l-wrapper.g-narrow
+          .g-narrow-inner
+            form.js-addContact(method='POST', action='#')
+              legend.Box-title Add A New Contact
+              ol
+                li.TextInput
+                  label.TextInput-label(for='given-name') First Name
+                  input#given-name.TextInput-field(type='text', name='given-name')
+                li.TextInput
+                  label.TextInput-label(for='family-name') Last Name
+                  input#family-name.TextInput-field(type='text', name='family-name')
+                li.TextInput
+                  label.TextInput-label(for='tel') Telephone Number
+                  input#tel.TextInput-field(type='tel', name='tel')
+                li
+                  button(type='submit') Add
+
+      section.l-fullBleed.Box.Box_midTone
         .l-wrapper
-          form.js-addContact(method='POST', action='#')
-            legend.Box-title Add A New Contact
-            ol
-              li.TextInput
-                label.TextInput-label.TextInput_dark-label(for='given-name') First Name
-                input#given-name.TextInput-field(type='text', name='given-name')
-              li.TextInput
-                label.TextInput-label.TextInput_dark-label(for='family-name') Last Name
-                input#family-name.TextInput-field(type='text', name='family-name')
-              li.TextInput
-                label.TextInput-label.TextInput_dark-label(for='tel') Telephone Number
-                input#tel.TextInput-field(type='tel', name='tel')
-              li
-                button(type='submit') Add
+          h2.Box-title Add A New Contact
+          .g-split
+            form.js-export(method='POST', action='#')
+              ol
+                li.TextInput
+                  label.TextInput-label(for='given-name') JSON Export
+                  textarea.TextInput-field.TextInput-textarea.js-exportField#export(name='export')
+
+          .g-split
+            form.js-import(method='POST', action='#')
+              ol
+                li.TextInput
+                  label.TextInput-label(for='import') Import JSON
+                  textarea.TextInput-field.TextInput-textarea.js-importField#import(name='import', aria-describedby='import-desc')
+                  p#import-desc.TextInput-desc
+                    Data must be imported as an array of objects. The object should have the following structure.
+                    code
+                      | {
+                      |   "firstName": "String",
+                      |   "lastName": "String",
+                      |   "tel": "String"
+                      | }
+                li
+                  button.Btn(type='submit') Import
 
       section.l-fullBleed
-        .l-wrapper
-          form.js-export(method='POST', action='#')
-            ol
-              li.TextInput
-                label.TextInput-label(for='given-name') JSON Export
-                textarea.TextInput-field.js-exportField#export(name='export')
-
-          form.js-import(method='POST', action='#')
-            ol
-              li#import-desc
-                Data must be imported as an array of objects. The object should have the following structure.
-                pre
-                  | {
-                  |   "firstName": "String",
-                  |   "lastName": "String",
-                  |   "tel": "String"
-                  | }
-              li.TextInput
-                label.TextInput-label(for='import') Import JSON
-                textarea.TextInput-field.js-importField#import(name='import', aria-describedby='import-desc')
-              li
-                button(type='submit') Import
-
-      section.l-fullBleed
-        .l-wrapper
-          ol.Log.js-logs(aria-live='polite', aria-relevant='additions')
+        .l-wrapper.g-narrow
+          ol.g-narrow-inner.Log.js-logs(aria-live='polite', aria-relevant='additions')
 
     script(src='js/app.min.js', type='text/javascript')
