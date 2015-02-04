@@ -63,13 +63,16 @@ html(lang='en-us')
               ol
                 li.TextInput
                   label.TextInput-label(for='given-name') First Name
-                  input#given-name.TextInput-field(type='text', name='given-name')
+                  input#given-name.TextInput-field(type='text',
+                    name='given-name', required='required')
                 li.TextInput
                   label.TextInput-label(for='family-name') Last Name
-                  input#family-name.TextInput-field(type='text', name='family-name')
+                  input#family-name.TextInput-field(type='text',
+                    name='family-name', required='required')
                 li.TextInput
                   label.TextInput-label(for='tel') Telephone Number
-                  input#tel.TextInput-field(type='tel', name='tel')
+                  input#tel.TextInput-field(type='tel', name='tel',
+                    required='required')
                 li
                   button.Btn(type='submit') Add
 
