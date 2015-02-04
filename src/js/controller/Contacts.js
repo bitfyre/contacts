@@ -60,7 +60,7 @@ ContactsController.remove = function(id) {
  * @arg {string} contact.firstName - Last name of the contact.
  * @arg {string} contact.tel - Telephone number of the contact.
  */
-ContactsController.render = function(id, contact) {
+ContactsController.renderContact = function(id, contact) {
   var contactView = new ContactView(id, contact);
 };
 
