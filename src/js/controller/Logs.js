@@ -28,10 +28,12 @@ LogController.prototype = {
   },
 
   render: function() {
-    console.log(this.dateTime, this.type, this.msg, this.data);
+    var view = new LogView(this.dateTime, this.type, this.msg,
+      this.data);
   }
 };
 
 module.exports = LogController;
 
 // Keep requires after the exports to prevent cirular dependency issues
+var LogView = require('../view/Log');
