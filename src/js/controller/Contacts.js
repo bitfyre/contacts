@@ -5,15 +5,6 @@
 var ContactsController = function() {
 };
 
-ContactsController.remove = function(id) {
-  ContactModel.remove(id);
-  ContactView.remove(id);
-};
-
-ContactsController.render = function(id, contact) {
-  var contactView = new ContactView(id, contact);
-};
-
 ContactsController.prototype = {
   setup: function() {
     var addContact = new AddContactForm();
@@ -49,6 +40,15 @@ ContactsController.prototype = {
       var contact = new ContactView(currentValue.key, currentValue.value);
     });
   }
+};
+
+ContactsController.remove = function(id) {
+  ContactModel.remove(id);
+  ContactView.remove(id);
+};
+
+ContactsController.render = function(id, contact) {
+  var contactView = new ContactView(id, contact);
 };
 
 module.exports = ContactsController;
