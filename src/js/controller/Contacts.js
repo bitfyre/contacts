@@ -89,6 +89,11 @@ ContactsController.fromJSON = function(json) {
   });
 };
 
+ContactsController.log = function() {
+  var log = new LogController();
+};
+
+
 module.exports = ContactsController;
 
 // Keep requires after the exports to prevent cirular dependency issues
@@ -97,3 +102,4 @@ var ContactView = require('../view/Contact');
 var AddContactForm = require('../view/AddContactForm');
 var ContactExport = require('../view/ContactExport');
 var ContactImport = require('../view/ContactImport');
+var LogController = require('./Logs');
