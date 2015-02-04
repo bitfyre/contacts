@@ -6,28 +6,34 @@
 *   ========================================================================= */
 
 .TextInput {
-  text-align: center;
   box-sizing: border-box;
-  padding: pxs2ems(8) pxs2ems(8) pxs2ems(24) pxs2ems(8);
-  padding: pxs2rems(8) pxs2rems(8) pxs2rems(24) pxs2rems(8);
+  padding: pxs2ems(8) 0 pxs2ems(24) 0;
+  padding: pxs2rems(8) 0 pxs2rems(24) 0;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  //background-color: $compressed-charcoal;
 
   &-label {
-    //color: $aluminium;
-    @include font-size(12);
+    @include font-size(16);
     text-align: left;
     display: block;
   }
 
   &-field {
     //border: 1px solid $aluminium;
+    width: 100%;
+    max-width: pxs2rems(360);
+    max-width: pxs2rems(360);
+    padding: pxs2ems(4);
+    padding: pxs2rems(4);
     border-radius: 3px;
   }
 
   &-input {
     display: inline-block;
+  }
+
+  &_dark {
+    &-label {
+      color: $sea-foam;
+    }
   }
 }

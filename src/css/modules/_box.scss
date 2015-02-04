@@ -7,4 +7,11 @@
 
 .Box {
   background-color: $chalkboard;
+
+  &-title {
+    color: $sea-foam;
+    font-family: $fancy-serif-stack;
+    @include font-size(24);
+    font-weight: 300;
+  }
 }
