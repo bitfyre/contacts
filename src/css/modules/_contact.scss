@@ -16,4 +16,14 @@
     padding: pxs2ems(8);
     padding: pxs2rems(8);
   }
+
+  //  Only doing desktop first here because tables don't always apply
+  //  style properly
+  @include mq($small-screen) {
+    &,
+    tr,
+    td {
+      display: block;
+    }
+  }
 }

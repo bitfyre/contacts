@@ -54,7 +54,10 @@ $fancy-sans-serif-stack: "soleil-1","soleil-2", #{$sans-serif-stack};
 //  Media Queries
 //  ============================================================================
 $large-breakpoint: (680 / $base-font-size) * 1em;
+$large-breakpoint: (680 / $base-font-size) * 1em;
 $large-screen: "only screen and (min-width: #{$large-breakpoint})";
+$small-breakpoint: (680 - 1 / $base-font-size) * 1em;
+$small-screen: "only screen and (max-width: #{$small-breakpoint})";
 
 //  Layout
 //  ============================================================================
