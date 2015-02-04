@@ -84,10 +84,7 @@ ContactsController.toJSON = function(id) {
  * @arg {number} json - json blob to be imported
  */
 ContactsController.fromJSON = function(json) {
-  console.log(typeof json);
-  console.log(json);
   json.forEach(function(currentValue) {
-    console.log(currentValue);
     var contactModel = new ContactModel(currentValue);
   });
 };
