@@ -1,4 +1,8 @@
 var ContactsController = require('../controller/Contacts');
+var telFormat = require('tel-format');
+
+//add telFormat to format tel input field
+telFormat();
 
 /**
  * Creates a new Contact.
