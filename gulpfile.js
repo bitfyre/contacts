@@ -9,6 +9,8 @@ var rename = require('gulp-rename');
 var sass = require('gulp-sass');
 var gulpWebpack = require('gulp-webpack');
 var webpack = require('webpack');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 
 gulp.task('html', function(){
   gulp.src(path.join(__dirname, 'src/**/*.html.jade'))
@@ -63,6 +65,12 @@ gulp.task('js', function() {
     }));
 });
 
+gulp.task('lint', function() {
+  return gulp.src(__dirname, 'src/js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish));
+});
+
 gulp.task('images', function() {
   gulp.src(
     [
@@ -87,12 +95,13 @@ gulp.task('watch',
     'html',
     'css',
     'js',
+    'lint',
     'browser-sync'
   ],
   function() {
     gulp.watch(path.join(__dirname, 'src/**/*.jade'), ['html']);
     gulp.watch(path.join(__dirname, 'src/css/**/*.scss'), ['css']);
-    gulp.watch(path.join(__dirname, 'src/js/**/*.js'), ['js']);
+    gulp.watch(path.join(__dirname, 'src/js/**/*.js'), ['js', 'lint']);
 });
 
 gulp.task('deploy', function () {
